@@ -1,4 +1,4 @@
-const reducer = (state, action) => {
+const reducer = (state = [], action) => {
     switch (action.type){
         case 'addCartItem':
             {
@@ -15,7 +15,6 @@ const reducer = (state, action) => {
                 }else{
                     newState[itemIndex].count += 1
                 }
-                console.log(newState)
                 return newState
             }
         case 'lessCartItem':
@@ -28,15 +27,13 @@ const reducer = (state, action) => {
                 }else{
                     newState[itemIndex].count -= 1
                 }
-                console.log(newState)
                 return newState
             }
         case 'removeCartItem':
             {
                 //payload nya id aja
                 const newState = [...state]
-                newState.splice(action.payload.id, 1)
-                console.log(newState)
+                newState.splice(action.payload.index, 1)
                 return newState
             }
         default:
