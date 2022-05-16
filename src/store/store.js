@@ -2,12 +2,13 @@ import { combineReducers, createStore } from 'redux'
 
 import productReducer from './product/reducer'
 import cartReducer from './cart/reducer'
-
+import userSlice from './user.js'
 window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 
 const reducers = combineReducers({
     product: productReducer,
-    cart: cartReducer
+    cart: cartReducer,
+    user: userSlice.reducer
 })
 
 const store = createStore(reducers)
